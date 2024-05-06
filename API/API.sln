@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34330.188
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{7258D355-0B9D-458B-9D28-6D5E31D5FC44}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{B96AB86E-07F8-4354-AC20-C9BB54689C10}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API.Domain", "src\Core\API.Domain\API.Domain.csproj", "{453DFDF7-E5DD-472D-958F-06A37D6AAE8D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{453DFDF7-E5DD-472D-958F-06A37D6AAE8D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{453DFDF7-E5DD-472D-958F-06A37D6AAE8D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{453DFDF7-E5DD-472D-958F-06A37D6AAE8D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{453DFDF7-E5DD-472D-958F-06A37D6AAE8D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{B96AB86E-07F8-4354-AC20-C9BB54689C10} = {7258D355-0B9D-458B-9D28-6D5E31D5FC44}
+		{453DFDF7-E5DD-472D-958F-06A37D6AAE8D} = {B96AB86E-07F8-4354-AC20-C9BB54689C10}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DC716B11-EDE0-45A5-B6C3-B739553677E4}
+	EndGlobalSection
+EndGlobal
