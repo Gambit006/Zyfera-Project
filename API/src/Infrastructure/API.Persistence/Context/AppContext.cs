@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Data.Common;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,6 +11,11 @@ namespace API.Persistence.Context
 {
     public class AppContext : DbContext
     {
+        public string _connectionString => Registration.ConnectionString;
+        public AppContext()
+        {
+
+        }
         public AppContext(DbContextOptions dbContextOptions) : base(dbContextOptions)
         {
 
@@ -23,8 +29,8 @@ namespace API.Persistence.Context
         {
             if(!optionsBuilder.IsConfigured)
             {
-                var connectionString = "";
-                optionsBuilder.UseSqlServer(connectionString, opt => { 
+
+                optionsBuilder.UseSqlServer(_connectionString, opt => { 
                     opt.EnableRetryOnFailure(); 
                 });
             }

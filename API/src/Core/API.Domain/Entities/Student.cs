@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace API.Domain.Entities
 {
-    [Table("Students")]
+    [Table("Students", Schema = "dbo")]
     public class Student
     {
         [Key]
