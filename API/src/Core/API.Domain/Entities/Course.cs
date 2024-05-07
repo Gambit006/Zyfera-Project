@@ -21,6 +21,6 @@ namespace API.Domain.Entities
         [Column(TypeName = "nvarchar(5)")]
         public string Code { get; set; }
 
-        public virtual ICollection<Student> Students { get; set; }
+        public virtual ICollection<StudentCourse> StudentCourses { get; set; }
     }
 }

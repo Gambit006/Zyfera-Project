@@ -23,6 +23,6 @@ namespace API.Domain.Entities
         [Column(TypeName = "nvarchar(100)")]
         public string Number { get; set; }
 
-        public virtual ICollection<Course> Courses { get; set; }
+        public virtual ICollection<StudentCourse> StudentCourses { get; set; }
     }
 }
