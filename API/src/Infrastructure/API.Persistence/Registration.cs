@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using API.Persistence.Context;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System;
@@ -11,13 +12,13 @@ namespace API.Persistence
 {
     public static class Registration
     {
-        public static string ConnectionString;
+
         public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
         {
-            services.AddDbContext<API.Persistence.Context.AppContext>(conf =>
+            services.AddDbContext<AppDbContext>(conf =>
             {
-                ConnectionString = configuration["ConnectionString"].ToString();
-                conf.UseSqlServer(ConnectionString, opt =>
+                string connectionString = configuration["ConnectionString"].ToString();
+                conf.UseSqlServer(connectionString, opt =>
                 {
                     opt.EnableRetryOnFailure();
                 });
