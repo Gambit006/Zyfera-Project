@@ -1,5 +1,6 @@
 ﻿using API.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
 using System;
 using System.Collections.Generic;
 using System.Data.Common;
@@ -9,14 +10,13 @@ using System.Threading.Tasks;
 
 namespace API.Persistence.Context
 {
-    public class AppContext : DbContext
+    public class AppDbContext : Microsoft.EntityFrameworkCore.DbContext
     {
-        public string _connectionString => Registration.ConnectionString;
-        public AppContext()
+        public AppDbContext()
         {
 
         }
-        public AppContext(DbContextOptions dbContextOptions) : base(dbContextOptions)
+        public AppDbContext(DbContextOptions dbContextOptions) : base(dbContextOptions)
         {
 
         }
@@ -27,10 +27,11 @@ namespace API.Persistence.Context
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
+
             if(!optionsBuilder.IsConfigured)
             {
 
-                optionsBuilder.UseSqlServer(_connectionString, opt => { 
+                optionsBuilder.UseSqlServer("Server=DESKTOP-BC7AGD6\\SQLEXPRESS;Database=ZyferaDb;TrustServerCertificate=True;Trusted_Connection=True;", opt => { 
                     opt.EnableRetryOnFailure(); 
                 });
             }
@@ -39,14 +40,12 @@ namespace API.Persistence.Context
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            base.OnModelCreating(modelBuilder);
 
-            modelBuilder.Entity<Student>().Property(s => s.Id).HasDefaultValue<Guid>();
-            modelBuilder.Entity<Course>().Property(c => c.Id).HasDefaultValue<Guid>();
-            modelBuilder.Entity<StudentCourse>().Property(sc => sc.Id).HasDefaultValue<Guid>();
+
 
             modelBuilder.Entity<StudentCourse>().HasKey(sc => new { sc.StudentId, sc.CourseId });
         }
+
 
 
     }
